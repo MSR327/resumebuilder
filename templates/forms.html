@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Builder</title>
+    <style>
+        body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #f5f7fa;
+          padding: 50px;
+          display: flex;
+          justify-content: center;
+        }
+      
+        form {
+          background-color: white;
+          padding: 30px 40px;
+          border-radius: 12px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+          width: 100%;
+          max-width: 600px;
+        }
+      
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+          width: 100%;
+          padding: 10px;
+          margin: 6px 0 16px 0;
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          font-size: 14px;
+        }
+      
+        label {
+          font-weight: 600;
+          margin-top: 10px;
+          display: block;
+        }
+      
+        input[type="submit"],
+        button {
+          background-color: #007bff;
+          color: white;
+          border: none;
+          padding: 10px 16px;
+          border-radius: 6px;
+          font-size: 15px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+      
+        button:hover,
+        input[type="submit"]:hover {
+          background-color: #0056b3;
+        }
+      
+        h2 {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+      </style>
+</head>
+<body>
+    <h2>Enter Your Details</h2>
+    <form action="/resume" method="post">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" name="phone"><br><br>
+
+        <label>Education:</label><br>
+        <textarea name="education" rows="4" cols="50"></textarea><br><br>
+
+        <label>Skills:</label><br>
+        <textarea name="skills" rows="3" cols="50"></textarea><br><br>
+
+        <label>Projects:</label><br>
+        <textarea name="projects" rows="3" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Generate Resume">
+        <label>Choose a Resume Template:</label><br>
+        <select name="template">
+          <option value="classic">Classic</option>
+          <option value="modern">Modern</option>
+          <option value="minimal">Minimal</option>
+        </select><br><br>
+
+        <label>Custom Sections (Achievements, Competitions, etc):</label><br>
+        <div id="custom-container">
+          <input type="text" name="custom_field" placeholder="e.g., Won Hackathon 2024"><br>
+        </div>
+        <button type="button" onclick="addCustom()">➕ Add More</button><br><br>
+
+        <script>
+          function addCustom() {
+            const container = document.getElementById('custom-container');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'custom_field';
+            input.placeholder = 'e.g., Completed ML course on Coursera';
+            container.appendChild(document.createElement('br'));
+            container.appendChild(input);
+          }
+        </script>
+    </form>
+</body>
+</html>
