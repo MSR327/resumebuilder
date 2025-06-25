@@ -33,4 +33,3 @@ A simple resume builder built using Flask, WeasyPrint, and HTML/CSS. It allows u
 - Python 3
 - Flask
 - WeasyPrint
-- 
